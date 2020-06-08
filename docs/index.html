@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <title>monogrid</title>
+
+  <style>
+  body {
+    margin: 20px;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  /**
+   * Just an auto sizing grid with some nth-child spans for "random"-ness
+   */
+
+  [data-component="monogrid"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+
+  [data-component="monogrid"] div {
+    height: 80px;
+    background: rgba(27,31,35,0.3);
+    border-radius: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [data-component="monogrid"] div:nth-child(3n) {
+    grid-column: auto / span 2;
+  }
+
+  [data-component="monogrid"] div:nth-child(8n + 8) {
+    grid-column: auto / span 3;
+  }
+
+  @media (min-width: 530px) {
+    [data-component="monogrid"] {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    [data-component="monogrid"] div {
+      height: 150px;
+    }
+  }
+
+  @media (min-width: 530px) {
+    [data-component="monogrid"] div:nth-child(3n) {
+      grid-column: auto / span 3;
+    } 
+  }
+
+  @media (min-width: 870px) {
+    [data-component="monogrid"] div:nth-child(8n + 8) {
+      grid-column: auto / span 5;
+    } 
+  }
+  </style>
+</head>
+<body>
+
+<h1>monogrid</h1>
+
+<div data-component="monogrid">
+  <div><a href="https://github.com/jongacnik/monogrid">github</a></div>
+  <div>A</div>
+  <div>B</div>
+  <div>C</div>
+  <div>D</div>
+  <div>E</div>
+  <div>F</div>
+  <div>G</div>
+  <div>H</div>
+  <div>I</div>
+  <div>J</div>
+  <div>K</div>
+  <div>L</div>
+  <div>M</div>
+  <div>N</div>
+  <div>O</div>
+  <div>P</div>
+  <div>Q</div>
+  <div>R</div>
+  <div>S</div>
+  <div>T</div>
+  <div>U</div>
+  <div>V</div>
+  <div>W</div>
+  <div>X</div>
+  <div>Y</div>
+  <div>Z</div>
+</div>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=ResizeObserver%2CgetComputedStyle"></script>
+<script>var Monogrid=function(){"use strict";function o(e,t){for(var r=0;r<t.length;r++){var n=t[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(e,n.key,n)}}function f(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){if("undefined"==typeof Symbol||!(Symbol.iterator in Object(e)))return;var r=[],n=!0,o=!1,i=void 0;try{for(var a,u=e[Symbol.iterator]();!(n=(a=u.next()).done)&&(r.push(a.value),!t||r.length!==t);n=!0);}catch(e){o=!0,i=e}finally{try{n||null==u.return||u.return()}finally{if(o)throw i}}return r}(e,t)||r(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function i(e){return function(e){if(Array.isArray(e))return n(e)}(e)||function(e){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(e))return Array.from(e)}(e)||r(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function r(e,t){if(e){if("string"==typeof e)return n(e,t);var r=Object.prototype.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?n(e,t):void 0}}function n(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r];return n}return function(){function t(e){!function(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,t),this.element=e,this.items=i(this.element.children),this.render=this.render.bind(this),this.observer=new ResizeObserver(this.render)}var e,r,n;return e=t,(r=[{key:"observe",value:function(){this.render(),this.observer.observe(this.element)}},{key:"unobserve",value:function(){this.observer.disconnect()}},{key:"clear",value:function(){this.items.forEach(function(e){return e.style.transform=""})}},{key:"getRows",value:function(e){return e.reduce(function(e,t){return t.offsetWidth&&(e[t.offsetTop]||(e[t.offsetTop]=[]),e[t.offsetTop].push(t)),e},{})}},{key:"getElementRight",value:function(e,t){var r,n=0;1<arguments.length&&void 0!==t&&!t&&(r=window.getComputedStyle(e),n=parseInt(r.getPropertyValue("padding-right"),10));var o=e.getBoundingClientRect();return o.left+o.width-n}},{key:"isAutoColumn",value:function(e){var t=window.getComputedStyle(e).getPropertyValue("grid-column-start");return 0<=t.indexOf("span")||0<=t.indexOf("auto")}},{key:"sort",value:function(e){return e.slice().sort(function(e,t){return e.offsetLeft-t.offsetLeft})}},{key:"render",value:function(){var a=this;this.clear();var u=this.getElementRight(this.element,!1),s=this.getRows(this.items);Object.keys(s).forEach(function(e){var t,r=a.sort(s[e]),n=f(r.slice(-1),1)[0],o=f(r.slice(0),1)[0],i=a.getElementRight(n);a.isAutoColumn(o)&&3<Math.abs(u-i)&&(t=(u-i)/2,r.forEach(function(e){return e.style.transform="translateX(".concat(t,"px)")}))})}}])&&o(e.prototype,r),n&&o(e,n),t}()}();</script>
+<script>
+  const grid = new Monogrid(document.querySelector('[data-component="monogrid"]'))
+  grid.observe()
+</script>
+
+</body>
+</html>
