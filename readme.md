@@ -33,6 +33,8 @@ grid.unobserve()
 
 `monogrid` unlocks flex style auto centering for css grids. Each row width is measured, and if it does not match the parent grid width, the row will be nudged to the center.
 
+<img src="https://services.folderstudio.com/monogrid/monogrid-01.jpg" width="100%" />
+
 ## API
 
 ### `instance = new Monogrid(element)`
@@ -54,6 +56,8 @@ Stop observing the element.
 ## Overrides
 
 Override `monogrid` behavior on a per-element basis by explicitly setting `grid-column-start`. In the example below, the highlighted item has `grid-column-start: 1` defined, so the row will not be centered and remain locked to the left.
+
+<img src="https://services.folderstudio.com/monogrid/monogrid-02.jpg" width="100%" />
 
 <br/>
 
