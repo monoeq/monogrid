@@ -59,12 +59,7 @@ Override `monogrid` behavior on a per-element basis by explicitly setting `grid-
 
 <img src="https://services.folderstudio.com/monogrid/monogrid-b.jpg" width="50%" />
 
-<br/>
-
-## `¯\_(ツ)_/¯`
-
-Layouts unlocked by `monogrid` can definitely all be solved with flexbox or other methods.
-
 ## Todo
 
 - [ ] `on('render')` event
+- [ ] `once('render')` event
