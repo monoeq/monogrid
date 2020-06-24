@@ -11,7 +11,7 @@
 
 <br />
 
-*Experimental* auto-centering css grid helper → [**Demo**](https://jongacnik.github.io/monogrid)
+*Experimental* auto-centering css grid helper → [**Demo**](https://monoeq.github.io/monogrid/)
 
 ## Usage
 
